@@ -19,6 +19,7 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset('assets/css/skins/_all-skins.min.css')}}">
+ <link rel="stylesheet" href="{{asset('plugins/datatables/dataTables.bootstrap.css')}}">
 
   <!-- Google Font -->
   <link rel="stylesheet"
@@ -86,13 +87,36 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview menu-open">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            
-          </a>
+        <li class="{{ Request::is('home','/*') ? 'active' : ''}}">
+            <a href="/home">
+                <span class="fa fa-dashboard"> Dashboard</span>
+            </a>
         </li>
-        
+
+        <li class="{{ Request::is('pegawai','/*') ? 'active' : ''}}">
+            <a href="/pegawai">
+                <span class="fa fa-group"> Kelola Pegawai</span>
+            </a>
+        </li>
+
+        <li class="{{ Request::is('jabatan','/*') ? 'active' : ''}}">
+            <a href="/jabatan">
+                <span class="fa fa-trophy"> Kelola Jabatan</span>
+            </a>
+        </li>
+
+        <li class="{{ Request::is('golongan','/*') ? 'active' : ''}}">
+            <a href="/golongan">
+                <span class="fa fa-star"> Kelola Golongan</span>
+            </a>
+        </li>
+
+        <li class="{{ Request::is('potongan','/*') ? 'active' : ''}}">
+            <a href="/potongan">
+                <span class="fa fa-money"> Kelola Potongan</span>
+            </a>
+        </li>
+
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -103,8 +127,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Dashboard
-        <small>Version 2.0</small>
+        @yield('title')
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -329,6 +352,13 @@
 <script src="{{asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- FastClick -->
 <script src="{{asset('bower_components/fastclick/lib/fastclick.js')}}"></script>
+<script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
+<script>
+  $(function () {
+    $("#example1").DataTable();
+  });
+</script>
 <!-- AdminLTE App -->
 <script src="{{asset('assets/js/adminlte.min.js')}}"></script>
 <!-- Sparkline -->
@@ -340,7 +370,11 @@
 <script src="{{asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 <!-- ChartJS -->
 <script src="{{asset('bower_components/Chart.js/Chart.js')}}"></script>
+
+
+
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('assets/js/pages/dashboard2.js')}}"></script>
+{{-- <script src="{{asset('assets/js/pages/dashboard2.js')}}"></script> --}}
+
 </body>
 </html>
