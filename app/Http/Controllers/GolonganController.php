@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class GolonganController extends Controller
 {
-    //
+    public function index()
+    {
+      return view('golongan/index');
+    }
 }

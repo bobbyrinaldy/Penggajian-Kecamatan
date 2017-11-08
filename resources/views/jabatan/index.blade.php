@@ -1,16 +1,16 @@
 @extends('layouts.master')
 
 @section('title')
-  Kelola Data Pegawai
+  Kelola Data Jabatan
 @endsection
 
 @section('content')
   <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title">Tabel Pegawai</h3>
+            <h3 class="box-title">Tabel Jabatan</h3>
           </div>
           <div class="box-body">
-            <a href="/pegawai/create" class="btn btn-success"> <span class="fa fa-plus"> Tambah Data Pegawai</span></a>
+            <a href="/jabatan/create" class="btn btn-success"> <span class="fa fa-plus"> Tambah Data Jabatan</span></a>
             <hr>
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -21,7 +21,20 @@
                 </tr>
                 </thead>
                 <tbody>
+                  @php
+                    $no=1;
+                  @endphp
 
+                  @foreach ($j as $item)
+                    <tr>
+                      <td>{{$no++}}</td>
+                      <td>{{$item->nama}}</td>
+                      <td>
+                        <a href="#" class="btn btn-warning btn-simple btn-xs"> <span class="fa fa-pencil"></span> </a>
+                        <a href="#" class="btn btn-danger btn-simple btn-xs"> <span class="fa fa-trash"></span> </a>
+                      </td>
+                    </tr>
+                  @endforeach
                 </tbody>
 
               </table>
