@@ -30,8 +30,8 @@
                       <td>{{$no++}}</td>
                       <td>{{$item->nama}}</td>
                       <td>
-                        <a href="#" class="btn btn-warning btn-simple btn-xs"> <span class="fa fa-pencil"></span> </a>
-                        <a href="#" class="btn btn-danger btn-simple btn-xs"> <span class="fa fa-trash"></span> </a>
+                        <a href="/jabatan/edit/{{$item->id}}" class="btn btn-warning btn-simple btn-xs"> <span class="fa fa-pencil"></span> </a>
+                        <a href="/jabatan/hapus/{{$item->id}}" class="btn btn-danger btn-simple btn-xs"> <span class="fa fa-trash"></span> </a>
                       </td>
                     </tr>
                   @endforeach

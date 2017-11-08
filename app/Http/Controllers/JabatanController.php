@@ -29,4 +29,29 @@ class JabatanController extends Controller
 
       return redirect('/jabatan');
     }
+
+    public function edit($id)
+    {
+      $data['j'] = jabatan::find($id);
+
+      return view('jabatan/edit',$data);
+    }
+
+    public function update(Request $req,$id)
+    {
+      $j = jabatan::find($id);
+
+      $j->nama = $req->nama;
+      $j->save();
+
+      return redirect('/jabatan');
+    }
+
+    public function delete($id)
+    {
+      $j = jabatan::find($id);
+      $j->delete();
+
+      return back();
+    }
 }
