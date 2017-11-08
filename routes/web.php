@@ -12,7 +12,11 @@ Auth::routes();
 //MULAI APLIKASI
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Pegawai
 Route::get('/pegawai', 'PegawaiController@index');
+Route::get('/pegawai/create', 'PegawaiController@create');
+Route::post('/pegawai/save', 'PegawaiController@save');
 
 
 // Jabatan

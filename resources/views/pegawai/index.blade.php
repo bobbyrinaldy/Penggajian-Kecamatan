@@ -25,7 +25,24 @@
                 </tr>
                 </thead>
                 <tbody>
-                
+                  @php
+                    $no=1;
+                  @endphp
+
+                  @foreach ($p as $item)
+                    <tr>
+                      <td>{{$no++}}</td>
+                      <td>{{$item->nip}}</td>
+                      <td>{{$item->nama}}</td>
+                      <td>{{$item->golongan_id}}</td>
+                      <td>{{$item->jabatan_id}}</td>
+                      <td>{{$item->created_at}}</td>
+                      <td>
+                        <a href="/pegawai/edit/{{$item->id}}" class="btn btn-warning btn-simple btn-xs"> <span class="fa fa-pencil"></span> </a>
+                        <a href="/pegawai/hapus/{{$item->id}}" class="btn btn-danger btn-simple btn-xs"> <span class="fa fa-trash"></span> </a>
+                      </td>
+                    </tr>
+                  @endforeach
                 </tbody>
 
               </table>
