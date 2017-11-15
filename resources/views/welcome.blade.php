@@ -354,10 +354,10 @@
 					<!-- single member -->
 					<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms">
 						<div class="member-thumb">
-							<img src="onepage/img/team/member-1.png" alt="Team Member" class="img-responsive">
+							<img src="onepage/img/team/camat.png" alt="Team Member" class="img-responsive">
 							<figcaption class="overlay">
-								<h5>voluptatem quia voluptas </h5>
-								<p>sit aspernatur aut odit aut fugit,</p>
+								<h5>H. Dadan Guratman., M.Si </h5>
+								<p>Kepala Kecamatan</p>
 								<ul class="social-links text-center">
 									<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
 									<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
@@ -365,8 +365,8 @@
 								</ul>
 							</figcaption>
 						</div>
-						<h4>John Filmr Doe</h4>
-						<span>Managing Director</span>
+						<h4>H. Dadan Guratman., M.Si</h4>
+						<span>Kepala Kecamatan</span>
 					</figure>
 					<!-- end single member -->
 
