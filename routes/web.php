@@ -15,6 +15,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Pegawai
 Route::get('/pegawai', 'PegawaiController@index');
+Route::get('/pegawai/search/{nip}', 'PegawaiController@search');
 Route::get('/pegawai/create', 'PegawaiController@create');
 Route::post('/pegawai/save', 'PegawaiController@save');
 Route::get('/pegawai/edit/{id}', 'PegawaiController@edit');
@@ -36,3 +37,11 @@ Route::post('/golongan/save', 'GolonganController@save');
 Route::get('/golongan/edit/{id}', 'GolonganController@edit');
 Route::put('/golongan/update/{id}', 'GolonganController@update');
 Route::get('/golongan/hapus/{id}', 'GolonganController@delete');
+
+// Gaji
+Route::get('/gaji', 'GajiController@index');
+Route::get('/gaji/create', 'GajiController@create');
+Route::post('/gaji/save', 'GajiController@save');
+Route::get('/gaji/edit/{id}', 'GajiController@edit');
+Route::put('/gaji/update/{id}', 'GajiController@update');
+Route::get('/gaji/hapus/{id}', 'GajiController@delete');

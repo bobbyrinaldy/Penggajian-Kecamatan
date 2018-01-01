@@ -34,8 +34,8 @@
                       <td>{{$no++}}</td>
                       <td>{{$item->nip}}</td>
                       <td>{{$item->nama}}</td>
-                      <td>{{$item->golongan_id}}</td>
-                      <td>{{$item->jabatan_id}}</td>
+                      <td>{{$item->golongan->nama}}</td>
+                      <td>{{$item->jabatan->nama}}</td>
                       <td>{{$item->created_at}}</td>
                       <td>
                         <a href="/pegawai/edit/{{$item->id}}" class="btn btn-warning btn-simple btn-xs"> <span class="fa fa-pencil"></span> </a>

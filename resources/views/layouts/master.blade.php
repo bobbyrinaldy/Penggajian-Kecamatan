@@ -20,6 +20,7 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset('assets/css/skins/_all-skins.min.css')}}">
  <link rel="stylesheet" href="{{asset('plugins/datatables/dataTables.bootstrap.css')}}">
+ <link rel="stylesheet" href="{{asset('plugins/select2/select2.css')}}">
 
   <!-- Google Font -->
   <link rel="stylesheet"
@@ -33,9 +34,9 @@
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>K</b>BK</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Bandung</b> Kulon</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -89,31 +90,43 @@
         <li class="header">MAIN NAVIGATION</li>
         <li class="{{ Request::is('home','/*') ? 'active' : ''}}">
             <a href="/home">
-                <span class="fa fa-dashboard"> Dashboard</span>
+              <i class="fa fa-dashboard"></i>
+              <span> Dashboard</span>
             </a>
         </li>
 
         <li class="{{ Request::is('pegawai','/*') ? 'active' : ''}}">
             <a href="/pegawai">
-                <span class="fa fa-group"> Kelola Pegawai</span>
+              <i class="fa fa-group"></i>
+              <span> Kelola Pegawai</span>
             </a>
         </li>
 
         <li class="{{ Request::is('jabatan','/*') ? 'active' : ''}}">
             <a href="/jabatan">
-                <span class="fa fa-trophy"> Kelola Jabatan</span>
+              <i class="fa fa-trophy"></i>
+              <span> Kelola Jabatan</span>
             </a>
         </li>
 
         <li class="{{ Request::is('golongan','/*') ? 'active' : ''}}">
             <a href="/golongan">
-                <span class="fa fa-star"> Kelola Golongan</span>
+              <i class="fa fa-star"></i>
+              <span> Kelola Golongan</span>
+            </a>
+        </li>
+
+        <li class="{{ Request::is('gaji','/*') ? 'active' : ''}}">
+            <a href="/gaji">
+              <i class="fa fa-money"></i>
+              <span> Kelola Gaji</span>
             </a>
         </li>
 
         <li class="{{ Request::is('potongan','/*') ? 'active' : ''}}">
             <a href="/potongan">
-                <span class="fa fa-money"> Kelola Potongan</span>
+              <i class="fa fa-tasks"></i>
+              <span> Kelola Potongan</span>
             </a>
         </li>
 
@@ -354,8 +367,15 @@
 <script src="{{asset('bower_components/fastclick/lib/fastclick.js')}}"></script>
 <script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
+<script src="{{asset('plugins/select2/select2.full.js')}}"></script>
+<script src="{{asset('plugins/moneymask/jquery.maskMoney.js')}}"></script>
 <script>
   $(function () {
+    $('.money').maskMoney({thousands:'.', precision : 0});
+
+    $(".select2").select2({
+      placeholder: "-Pilih Salah Satu-"
+    });
     $("#example1").DataTable();
   });
 </script>
@@ -371,7 +391,7 @@
 <!-- ChartJS -->
 <script src="{{asset('bower_components/Chart.js/Chart.js')}}"></script>
 
-
+@yield('js')
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 {{-- <script src="{{asset('assets/js/pages/dashboard2.js')}}"></script> --}}

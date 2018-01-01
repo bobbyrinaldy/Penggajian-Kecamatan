@@ -12,7 +12,7 @@ class PegawaiController extends Controller
 {
     public function index()
     {
-      $data['p'] = pegawai::all();
+      $data['p'] = pegawai::with('jabatan','golongan')->get();
       return view('/pegawai/index',$data);
     }
 
@@ -75,5 +75,12 @@ class PegawaiController extends Controller
       $p->delete();
 
       return back();
+    }
+
+    public function search($nip)
+    {
+      $data = Pegawai::with('golongan')->where('nip',$nip)->first();
+
+      return json_encode($data);
     }
 }
