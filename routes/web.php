@@ -17,7 +17,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/pegawai', 'PegawaiController@index');
 Route::get('/pegawai/create', 'PegawaiController@create');
 Route::post('/pegawai/save', 'PegawaiController@save');
-
+Route::get('/pegawai/edit/{id}', 'PegawaiController@edit');
+Route::put('/pegawai/update/{id}', 'PegawaiController@update');
+Route::get('/pegawai/hapus/{id}', 'PegawaiController@delete');
 
 // Jabatan
 Route::get('/jabatan', 'JabatanController@index');

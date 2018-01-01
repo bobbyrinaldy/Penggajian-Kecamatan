@@ -32,12 +32,48 @@ class PegawaiController extends Controller
       $p->alamat = $req->alamat;
       $p->jk = $req->jk;
       $p->agama = $req->agama;
-      $p->golongan_id = $req->golongan;
+      $p->no_tlp = $req->no_tlp;
       $p->jabatan_id = $req->jabatan;
-      $p->gaji_pokok = $req->gaji;
+      $p->golongan_id = $req->golongan;
 
       $p->save();
 
       return redirect('/pegawai');
+    }
+
+    public function edit($id)
+    {
+      $data['p'] = pegawai::find($id);
+      $data['g'] = golongan::all();
+      $data['j'] = jabatan::all();
+
+
+      return view('/pegawai/edit',$data);
+    }
+
+    public function update(Request $req,$id)
+    {
+      $p = pegawai::find($id);
+      $p->nip = $req->nip;
+      $p->nama = $req->nama;
+      $p->alamat = $req->alamat;
+      $p->jk = $req->jk;
+      $p->agama = $req->agama;
+      $p->no_tlp = $req->no_tlp;
+      $p->jabatan_id = $req->jabatan;
+      $p->golongan_id = $req->golongan;
+
+      $p->save();
+
+      return redirect('/pegawai');
+    }
+
+
+    public function delete($id)
+    {
+      $p = pegawai::find($id);
+      $p->delete();
+
+      return back();
     }
 }
