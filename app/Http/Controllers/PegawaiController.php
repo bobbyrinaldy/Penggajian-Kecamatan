@@ -12,7 +12,8 @@ class PegawaiController extends Controller
 {
     public function index()
     {
-      $data['p'] = pegawai::with('jabatan','golongan')->get();
+      $data['p'] = pegawai::with('golongan','jabatan')->get();
+      dd($data['p']);
       return view('/pegawai/index',$data);
     }
 
