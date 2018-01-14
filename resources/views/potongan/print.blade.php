@@ -49,6 +49,14 @@
         width: 8.6cm;
         height: 11.8cm;
       }
+
+      @media print {  
+        @page {
+          padding: 0.3cm;
+          width: 8.6cm;
+          height: 11.8cm;
+        }
+      }
     </style>
   </head>
   <body onload='window.print()'>

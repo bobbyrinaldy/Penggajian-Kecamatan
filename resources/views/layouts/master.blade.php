@@ -369,6 +369,7 @@
 <script src="{{asset('plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
 <script src="{{asset('plugins/select2/select2.full.js')}}"></script>
 <script src="{{asset('plugins/moneymask/jquery.maskMoney.js')}}"></script>
+<script src="{{asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
 <script>
   $(function () {
     $('.money').maskMoney({thousands:'.', precision : 0});

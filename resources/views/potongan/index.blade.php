@@ -54,9 +54,9 @@
                       </td>
                       <td>Rp {{number_format($key->pegawai->gaji->gaji-($key->kpkb+$key->bjb+$key->zakat+$key->dharma+$key->makmur))}}</td>
                       <td>
-                        <a href="/potongan/edit/{{$key->id}}" class="btn btn-warning btn-simple btn-xs"> <span class="fa fa-pencil"></span> </a>
-                        <a href="/potongan/hapus/{{$key->id}}" class="btn btn-danger btn-simple btn-xs"> <span class="fa fa-trash"></span> </a>
-                        <a href="/potongan/print/{{$key->id}}" class="btn btn-info btn-simple btn-xs"> <span class="fa fa-print"></span> </a>
+                        <a href="#" class="btn btn-warning btn-simple btn-xs" id="btn-edit" data-name="{{$key->pegawai->nama}}" data-url="/potongan/edit/{{$key->id}}"> <span class="fa fa-pencil"></span> </a>
+                        <a href="#" class="btn btn-danger btn-simple btn-xs" id="btn-delete" data-name="{{$key->pegawai->nama}}" data-url="/potongan/hapus/{{$key->id}}"> <span class="fa fa-trash"></span> </a>
+                        <a href="#" class="btn btn-info btn-simple btn-xs" id="btn-print" data-name="{{$key->pegawai->nama}}" data-url="/potongan/print/{{$key->id}}"> <span class="fa fa-print"></span> </a>
                       </td>
                     </tr>
                     @endforeach
@@ -66,4 +66,64 @@
             </div>
           </div>
         </div>
+@endsection
+
+@section('js')
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $(".btn-info").click(function(){
+        var nama = $(this).data('name');
+        var url = $(this).data('url');
+        swal({
+          title: "Are you sure?",
+          text: "Anda akan mencetak slip gaji milik "+nama+"!",
+          icon: "info",
+          buttons: ["Batal", "Print"],
+        })
+        .then((print) => {
+          if (print) {
+            window.open(url);
+          }else{
+
+          }
+        });
+    });
+
+    $(".btn-danger").click(function(){
+        var nama = $(this).data('name');
+        var url = $(this).data('url');
+        swal({
+          title: "Are you sure?",
+          text: "Anda akan menghapus data milik "+nama+"!",
+          icon: "error",
+          buttons: ["Batal", "Hapus!"],
+          dangerMode :true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            location.replace(url);
+          }
+        });
+    });
+
+     $(".btn-warning").click(function(){
+        var nama = $(this).data('name');
+        var url = $(this).data('url');
+        swal({
+          title: "Are you sure?",
+          text: "Anda akan merubah data milik "+nama+"!",
+          icon: "info",
+          buttons: ["Batal", "Ubah!"],
+          dangerMode :true,
+        })
+        .then((edit) => {
+          if (edit) {
+            location.replace(url);
+          }
+        });
+    });
+      
+  });
+</script>
 @endsection

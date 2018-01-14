@@ -39,8 +39,8 @@
                       <td>{{$item->jabatan->nama}}</td>
                       <td>{{$item->created_at}}</td>
                       <td>
-                        <a href="/pegawai/edit/{{$item->id}}" class="btn btn-warning btn-simple btn-xs"> <span class="fa fa-pencil"></span> </a>
-                        <a href="/pegawai/hapus/{{$item->id}}" class="btn btn-danger btn-simple btn-xs"> <span class="fa fa-trash"></span> </a>
+                        <a href="#" class="btn btn-warning btn-simple btn-xs" data-name="{{$item->nama}}" data-url="/pegawai/edit/{{$item->id}}"> <span class="fa fa-pencil"></span> </a>
+                        <a href="#" class="btn btn-danger btn-simple btn-xs" data-name="{{$item->nama}}" data-url="/pegawai/hapus/{{$item->id}}"> <span class="fa fa-trash"></span> </a>
                       </td>
                     </tr>
                   @endforeach
@@ -49,4 +49,46 @@
               </table>
           </div>
         </div>
+@endsection
+
+@section('js')
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $(".btn-danger").click(function(){
+        var nama = $(this).data('name');
+        var url = $(this).data('url');
+        swal({
+          title: "Are you sure?",
+          text: "Anda akan menghapus data pegawai "+nama+"!",
+          icon: "error",
+          buttons: ["Batal", "Hapus!"],
+          dangerMode :true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            location.replace(url);
+          }
+        });
+    });
+
+     $(".btn-warning").click(function(){
+        var nama = $(this).data('name');
+        var url = $(this).data('url');
+        swal({
+          title: "Are you sure?",
+          text: "Anda akan merubah data pegawai "+nama+"!",
+          icon: "info",
+          buttons: ["Batal", "Ubah!"],
+          dangerMode :true,
+        })
+        .then((edit) => {
+          if (edit) {
+            location.replace(url);
+          }
+        });
+    });
+      
+  });
+</script>
 @endsection

@@ -7,11 +7,11 @@
 @section('content')
   <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Horizontal Form</h3>
+              <h3 class="box-title">Form</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" action="/potongan/save" method="post">
+            <form class="form-horizontal" action="/potongan/save" method="post" id="form">
               {{ csrf_field() }}
               <div class="box-body">
 
@@ -21,7 +21,7 @@
 
                     <div class="col-sm-5">
                       <select class="form-control select2" name="nip" id="nip">
-                        <option selected disabled>Pilih Pegawai</option>
+                        <option value="" selected disabled>Pilih Pegawai</option>
                         @foreach ($pegawai as $item)
                           <option value="{{$item->nip}}">{{$item->nip}} / {{$item->nama}}</option>
                         @endforeach
@@ -113,7 +113,7 @@
               <!-- /.box-body -->
               <div class="box-footer">
                 <a href="/gaji" class="btn btn-default">Batal</a>
-                <button type="submit" class="btn btn-info">Simpan</button>
+                <button type="button" class="btn btn-info" id="btn-submit">Simpan</button>
               </div>
               <!-- /.box-footer -->
             </form>
@@ -122,6 +122,34 @@
 
 @section('js')
   <script type="text/javascript">
+    $("#btn-submit").click(function(){
+        var opsi = $('#nip').val();
+        console.log(opsi);
+        if (opsi == "" || opsi == null) {
+          swal("Maaf!", "Anda Harus Mengisi Form Sebelum Submit!", "warning");
+        }else{
+          swal({
+            title: "Are you sure ?",
+            text: "Anda akan menyimpan data ini",
+            icon: "info",
+            buttons: ["Batal", "Save"],
+          })
+          .then((print) => {
+            if (print) {
+              swal.stopLoading();
+              swal("This modal will disappear soon!", {
+                buttons: false,
+                timer: 3000,
+                icon : "success"
+              }).then((print) => {
+                $('#form').submit();
+              });
+            }
+          });
+        }
+        
+    });
+
     $('#kpkb').on('change', function() {
       var makmur = $('#makmur').val();
       var gaji = $('#pokok').val();
