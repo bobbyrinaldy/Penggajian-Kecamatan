@@ -45,3 +45,12 @@ Route::post('/gaji/save', 'GajiController@save');
 Route::get('/gaji/edit/{id}', 'GajiController@edit');
 Route::put('/gaji/update/{id}', 'GajiController@update');
 Route::get('/gaji/hapus/{id}', 'GajiController@delete');
+
+//Potongan
+Route::get('/potongan', 'PotonganController@index');
+Route::get('/potongan/create', 'PotonganController@create');
+Route::post('/potongan/save', 'PotonganController@save');
+Route::get('/potongan/edit/{id}', 'PotonganController@edit');
+Route::put('/potongan/update/{id}', 'PotonganController@update');
+Route::get('/potongan/print/{id}', 'PotonganController@print');
+Route::get('/potongan/hapus/{id}', 'PotonganController@delete');

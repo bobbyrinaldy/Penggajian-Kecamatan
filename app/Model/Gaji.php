@@ -8,6 +8,6 @@ class Gaji extends Model
 {
     public function pegawai()
     {
-        return $this->belongsTo('App\Model\Pegawai');
+        return $this->belongsTo('App\Model\Pegawai','pegawai_id');
     }
 }

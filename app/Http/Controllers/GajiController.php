@@ -23,8 +23,7 @@ class GajiController extends Controller
                       ->from('gajis')
                       ->whereRaw('pegawais.id = gajis.pegawai_id');
             })
-            ->get();
-      
+            ->get();      
 
     	return view('gaji.create',$data);
     }
@@ -32,7 +31,7 @@ class GajiController extends Controller
     public function save(Request $req)
     {
     	$money = str_replace('.', '', $req->gaji );
-    	
+
     	$gaji = new Gaji;
     	$gaji->pegawai_id = $req->id;
     	$gaji->gaji = $money;
@@ -60,7 +59,7 @@ class GajiController extends Controller
     	$gaji = Gaji::find($id);
 
     	$money = str_replace('.', '', $req->gaji );
-    	
+
     	$gaji->pegawai_id = $req->id;
     	$gaji->gaji = $money;
     	$gaji->save();

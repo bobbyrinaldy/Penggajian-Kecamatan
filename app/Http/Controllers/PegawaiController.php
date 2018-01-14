@@ -12,8 +12,8 @@ class PegawaiController extends Controller
 {
     public function index()
     {
-      $data['p'] = pegawai::with('golongan','jabatan')->get();
-      dd($data['p']);
+      $data['p'] = pegawai::with('jabatan','golongan')->get();
+
       return view('/pegawai/index',$data);
     }
 
@@ -80,7 +80,7 @@ class PegawaiController extends Controller
 
     public function search($nip)
     {
-      $data = Pegawai::with('golongan')->where('nip',$nip)->first();
+      $data = Pegawai::with('golongan','gaji')->where('nip',$nip)->first();
 
       return json_encode($data);
     }

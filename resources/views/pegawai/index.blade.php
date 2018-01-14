@@ -27,6 +27,7 @@
                 <tbody>
                   @php
                     $no=1;
+                    // dd($p);
                   @endphp
 
                   @foreach ($p as $item)
