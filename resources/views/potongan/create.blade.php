@@ -70,7 +70,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="zakat" class="col-sm-2 control-label" >Zakat</label>
+                    <label for="zakat" class="col-sm-2 control-label" >Zakat (2,5%)</label>
                     <div class="col-sm-5">
                       <input type="text" name="zakat" class="form-control gaji" readonly='yes' id='zakat'>
                     </div>
@@ -137,7 +137,7 @@
           .then((print) => {
             if (print) {
               swal.stopLoading();
-              swal("This modal will disappear soon!", {
+              swal("Berhasil Menyimpan Data!", {
                 buttons: false,
                 timer: 3000,
                 icon : "success"
@@ -147,7 +147,7 @@
             }
           });
         }
-        
+
     });
 
     $('#kpkb').on('change', function() {

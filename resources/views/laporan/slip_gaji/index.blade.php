@@ -1,17 +1,17 @@
 @extends('layouts.master')
 
 @section('title')
-  Kelola Data Potongan Gaji
+  Laporan Cetak Slip Gaji
 @endsection
 
 @section('content')
   <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title">Tabel Potongan Gaji</h3>
+            <h3 class="box-title">Tabel Cetak Slip Gaji</h3>
           </div>
           <div class="box-body">
-            <a href="/potongan/create" class="btn btn-success"> <span class="fa fa-plus"> Tambah Data Potongan Gaji</span></a>
-            <hr>
+            {{-- <a href="/potongan/create" class="btn btn-success"> <span class="fa fa-plus"> Tambah Data Potongan Gaji</span></a> --}}
+            {{-- <hr> --}}
             <div class="table-responsive">
               <table id="example1" class="table table-bordered table-striped">
                   <thead>
@@ -54,9 +54,9 @@
                       </td>
                       <td>Rp {{number_format($key->pegawai->gaji->gaji-($key->kpkb+$key->bjb+$key->zakat+$key->dharma+$key->makmur))}}</td>
                       <td>
-                        <a href="#" class="btn btn-warning btn-simple btn-xs" id="btn-edit" data-name="{{$key->pegawai->nama}}" data-url="/potongan/edit/{{$key->id}}"> <span class="fa fa-pencil"></span> </a>
-                        <a href="#" class="btn btn-danger btn-simple btn-xs" id="btn-delete" data-name="{{$key->pegawai->nama}}" data-url="/potongan/hapus/{{$key->id}}"> <span class="fa fa-trash"></span> </a>
-                        {{-- <a href="#" class="btn btn-info btn-simple btn-xs" id="btn-print" data-name="{{$key->pegawai->nama}}" data-url="/potongan/print/{{$key->id}}"> <span class="fa fa-print"></span> </a> --}}
+                        {{-- <a href="#" class="btn btn-warning btn-simple btn-xs" id="btn-edit" data-name="{{$key->pegawai->nama}}" data-url="/potongan/edit/{{$key->id}}"> <span class="fa fa-pencil"></span> </a> --}}
+                        {{-- <a href="#" class="btn btn-danger btn-simple btn-xs" id="btn-delete" data-name="{{$key->pegawai->nama}}" data-url="/potongan/hapus/{{$key->id}}"> <span class="fa fa-trash"></span> </a> --}}
+                        <a href="#" class="btn btn-info btn-simple btn-xs" id="btn-print" data-name="{{$key->pegawai->nama}}" data-url="/potongan/print/{{$key->id}}"> <span class="fa fa-print"></span> </a>
                       </td>
                     </tr>
                     @endforeach

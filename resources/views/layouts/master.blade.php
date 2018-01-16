@@ -130,6 +130,19 @@
             </a>
         </li>
 
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-bar-chart"></i>
+            <span>Laporan</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/laporan/slip_gaji"><i class="fa fa-book"></i> Slip Gaji</a></li>
+          </ul>
+        </li>
+
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -369,7 +382,7 @@
 <script src="{{asset('plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
 <script src="{{asset('plugins/select2/select2.full.js')}}"></script>
 <script src="{{asset('plugins/moneymask/jquery.maskMoney.js')}}"></script>
-<script src="{{asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+<script src="{{asset('js/sweetalert.min.js')}}"></script>
 <script>
   $(function () {
     $('.money').maskMoney({thousands:'.', precision : 0});
