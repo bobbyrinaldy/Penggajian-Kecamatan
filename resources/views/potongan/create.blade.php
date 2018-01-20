@@ -51,14 +51,14 @@
                   <div class="form-group">
                     <label for="rek" class="col-sm-2 control-label" >No. Rek SES. BG KKN</label>
                     <div class="col-sm-5">
-                      <input type="text" name="rek" class="form-control">
+                      <input type="text" name="rek" class="form-control digit" maxlength="16" placeholder="No Rekening (0 jika tidak memiliki)">
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label for="kpkb" class="col-sm-2 control-label" >KPKB</label>
                     <div class="col-sm-5">
-                      <input type="text" name="kpkb" class="form-control" id='kpkb' value="0">
+                      <input type="text" name="kpkb" class="form-control digit" id='kpkb' value="0">
                     </div>
                   </div>
 
@@ -86,7 +86,7 @@
                   <div class="form-group">
                     <label for="makmur" class="col-sm-2 control-label" >Sumber Makmur</label>
                     <div class="col-sm-5">
-                      <input type="text" name="makmur" class="form-control" id='makmur' value='0'>
+                      <input type="text" name="makmur" class="form-control digit" id='makmur' value='0'>
                     </div>
                   </div>
 
@@ -122,6 +122,15 @@
 
 @section('js')
   <script type="text/javascript">
+
+  $(".digit").keypress(function (e) {
+   //if the letter is not digit then display error and don't type anything
+   if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+      //display error message
+      return false;
+    }
+   });
+
     $("#btn-submit").click(function(){
         var opsi = $('#nip').val();
         console.log(opsi);
@@ -159,8 +168,8 @@
       var bjb = $('#bjb').val();
       var hasil = parseInt(dharma) + parseInt(zakat) + parseInt(kpkb) + parseInt(bjb) + parseInt(makmur);
       var total = parseInt(gaji) - (hasil);
-      $('#potongan').val(hasil);
-      $('#total').val(total);
+      $('#potongan').val(Math.round(hasil));
+      $('#total').val(Math.round(total));
       console.log(hasil);
     })
 
@@ -173,8 +182,8 @@
       var bjb = $('#bjb').val();
       var hasil = parseInt(dharma) + parseInt(zakat) + parseInt(kpkb) + parseInt(bjb) + parseInt(makmur);
       var total = parseInt(gaji) - (hasil);
-      $('#potongan').val(hasil);
-      $('#total').val(total);
+      $('#potongan').val(Math.round(hasil));
+      $('#total').val(Math.round(total));
       console.log(hasil);
     })
 
@@ -187,8 +196,8 @@
       var bjb = $('#bjb').val();
       var hasil = parseInt(dharma) + parseInt(zakat) + parseInt(kpkb) + parseInt(bjb) + parseInt(makmur);
       var total = parseInt(gaji) - (hasil);
-      $('#potongan').val(hasil);
-      $('#total').val(total);
+      $('#potongan').val(Math.round(hasil));
+      $('#total').val(Math.round(total));
       console.log(hasil);
     })
 
@@ -209,13 +218,13 @@
           console.log(response);
 
             $('#nama').val(response.nama);
-            if (response.golongan.nama == 'IV/A' || response.golongan.nama == 'IV/B' || response.golongan.nama == 'IV/C' || response.golongan.nama == 'IV/D'  || response.golongan.nama == 'IV/E') {
+            if (response.golongan.nama == 'IV/a' || response.golongan.nama == 'IV/b' || response.golongan.nama == 'IV/c' || response.golongan.nama == 'IV/c'  || response.golongan.nama == 'IV/d') {
               var dharma = 4000;
               $('#golongan').val(4000);
-            } else if(response.golongan.nama == 'III/A' || response.golongan.nama == 'III/B' || response.golongan.nama == 'III/C' || response.golongan.nama == 'III/D'  || response.golongan.nama == 'III/E') {
+            } else if(response.golongan.nama == 'III/a' || response.golongan.nama == 'III/b' || response.golongan.nama == 'III/c' || response.golongan.nama == 'III/c'  || response.golongan.nama == 'III/d') {
               var dharma = 3000;
               $('#golongan').val(3000);
-            } else if(response.golongan.nama == 'II/A' || response.golongan.nama == 'II/B' || response.golongan.nama == 'II/C' || response.golongan.nama == 'II/D'  || response.golongan.nama == 'II/E') {
+            } else if(response.golongan.nama == 'II/a' || response.golongan.nama == 'II/b' || response.golongan.nama == 'II/c' || response.golongan.nama == 'II/c'  || response.golongan.nama == 'II/d') {
               var dharma = 2000;
               $('#golongan').val(2000);
             } else {
@@ -224,10 +233,10 @@
             }
             $('#pokok').val(response.gaji.gaji);
             var gaji = response.gaji.gaji;
-            $('#zakat').val(response.gaji.gaji*0.025);
+            $('#zakat').val(Math.round(response.gaji.gaji*0.025));
             var zakat = response.gaji.gaji*0.025;
-            $('#potongan').val(dharma+zakat);
-            $('#total').val(gaji - (dharma+zakat));
+            $('#potongan').val(Math.round(dharma+zakat));
+            $('#total').val(Math.round(gaji - (dharma+zakat)));
             $('#id').val(response.id);
         });
 

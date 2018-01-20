@@ -119,8 +119,8 @@
       var bjb = $('#bjb').val();
       var hasil = parseInt(dharma) + parseInt(zakat) + parseInt(kpkb) + parseInt(bjb) + parseInt(makmur);
       var total = parseInt(gaji) - (hasil);
-      $('#potongan').val(hasil);
-      $('#total').val(total);
+      $('#potongan').val(Math.round(hasil));
+      $('#total').val(Math.round(total));
       console.log(hasil);
     })
 
@@ -133,8 +133,8 @@
       var bjb = $('#bjb').val();
       var hasil = parseInt(dharma) + parseInt(zakat) + parseInt(kpkb) + parseInt(bjb) + parseInt(makmur);
       var total = parseInt(gaji) - (hasil);
-      $('#potongan').val(hasil);
-      $('#total').val(total);
+      $('#potongan').val(Math.round(hasil));
+      $('#total').val(Math.round(total));
       console.log(hasil);
     })
 
@@ -147,8 +147,8 @@
       var bjb = $('#bjb').val();
       var hasil = parseInt(dharma) + parseInt(zakat) + parseInt(kpkb) + parseInt(bjb) + parseInt(makmur);
       var total = parseInt(gaji) - (hasil);
-      $('#potongan').val(hasil);
-      $('#total').val(total);
+      $('#potongan').val(Math.round(hasil));
+      $('#total').val(Math.round(total));
       console.log(hasil);
     })
   </script>
