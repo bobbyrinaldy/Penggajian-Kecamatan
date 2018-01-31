@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-  Form Jabatan
+  Form Edit Pegawai
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
             <div class="box-header with-border">
             </div>
 
-            <form class="form-horizontal" action="/pegawai/update/{{$p->id}}" method="post">
+            <form class="form-horizontal" action="/pegawai/update/{{$p->id}}" method="post" id="form">
               {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">
@@ -112,11 +112,14 @@
 
               <!-- /.box-body -->
               <div class="box-footer">
-                <button type="submit" class="btn btn-default">Batal</button>
-                <button type="submit" class="btn btn-info">Simpan</button>
+                <a href="/pegawai" class="btn btn-warning">Batal</a>
+                <button type="submit" class="btn btn-info">Ubah</button>
                 <input type="hidden" name="_method" value="put">
               </div>
               <!-- /.box-footer -->
             </form>
           </div>
+@endsection
+@section('js')
+  @include('pegawai.script')
 @endsection

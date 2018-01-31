@@ -36,6 +36,7 @@ class PotonganController extends Controller
       $potongan->zakat      = $request->zakat;
       $potongan->dharma     = $request->dharma;
       $potongan->makmur     = $request->makmur;
+      $potongan->total     = $request->total;
       $potongan->save();
 
       return redirect('/potongan');
@@ -58,6 +59,7 @@ class PotonganController extends Controller
       $potongan->zakat      = $request->zakat;
       $potongan->dharma     = $request->dharma;
       $potongan->makmur     = $request->makmur;
+      $potongan->total     = $request->total;
       $potongan->save();
 
       return redirect('/potongan');

@@ -58,5 +58,7 @@ Route::group(['middleware' => 'auth'], function()
 
 
   //Laporan
-  Route::get('/laporan/slip_gaji', 'LaporanController@indexSlip');
+  Route::get('/laporan/penerima_gaji', 'LaporanController@indexTerimaGaji');
+  Route::get('/laporan/jurnal', 'LaporanController@indexJurnal');
+  Route::get('/laporan/jurnal/print', 'LaporanController@printJurnal');
 });

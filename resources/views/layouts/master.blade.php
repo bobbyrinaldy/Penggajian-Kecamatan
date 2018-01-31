@@ -139,7 +139,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/laporan/slip_gaji"><i class="fa fa-book"></i> Slip Gaji</a></li>
+            <li><a href="/laporan/penerima_gaji"><i class="fa fa-book"></i> Penerima Gaji</a></li>
+            <li><a href="/laporan/jurnal"><i class="fa fa-book"></i> Jurnal</a></li>
           </ul>
         </li>
 
@@ -399,6 +400,8 @@
 <script src="{{asset('bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
 <!-- jvectormap  -->
 <script src="{{asset('plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
+<script src="{{asset('plugins/validation/additional-methods.js')}}"></script>
+<script src="{{asset('plugins/validation/jquery.validate.js')}}"></script>
 <script src="{{asset('plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
 <!-- SlimScroll -->
 <script src="{{asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>

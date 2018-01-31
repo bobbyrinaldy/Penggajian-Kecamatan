@@ -8,11 +8,11 @@ Dashboard
   <div class="row">
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-              <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+              <span class="info-box-icon bg-aqua"><i class="fa fa-group"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">CPU Traffic</span>
-                <span class="info-box-number">90<small>%</small></span>
+                <span class="info-box-text">Jumlah Pegawai</span>
+                <span class="info-box-number">{{$pegawai}} Orang</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -21,11 +21,11 @@ Dashboard
           <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-              <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+              <span class="info-box-icon bg-red"><i class="fa fa-money"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Likes</span>
-                <span class="info-box-number">41,410</span>
+                <span class="info-box-text">Total Gaji Pokok</span>
+                <span class="info-box-number">Rp. {{number_format($gaji_pokok)}}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -38,11 +38,11 @@ Dashboard
 
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-              <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+              <span class="info-box-icon bg-green"><i class="fa fa-tasks"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Sales</span>
-                <span class="info-box-number">760</span>
+                <span class="info-box-text">Pegawai Sudah Di <br> Gaji Bulan ini</span>
+                <span class="info-box-number">{{$potongan}} Orang</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -51,11 +51,11 @@ Dashboard
           <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-              <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+              <span class="info-box-icon bg-yellow"><i class="fa fa-money"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">New Members</span>
-                <span class="info-box-number">2,000</span>
+                <span class="info-box-text">Total Gaji Yang <br>Sudah Dibayarkan</span>
+                <span class="info-box-number">Rp.{{number_format($bayar)}}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -63,6 +63,80 @@ Dashboard
           </div>
           <!-- /.col -->
         </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="box" style="height:500px">
+              <div class="box-header with-border">
+                <h4>5 Data Potongan Gaji Terbaru</h4>
+              </div>
+              <div class="box-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th width="30%">Nama</th>
+                        <th width="10%">Golongan</th>
+                        <th width="20%">Jabatan</th>
+                        <th width="30%">Total dibayarkan</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      @foreach ($potongan_gaji as $value)
+                        <tr>
+                          <td>{{$value->pegawai->nama}}</td>
+                          <td>{{$value->pegawai->golongan->nama}}</td>
+                          <td>{{$value->pegawai->Jabatan->nama}}</td>
+                          <td>Rp. {{number_format($value->total)}}</td>
+                        </tr>
+                      @endforeach
+                    </tbody>
+
+
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="box" style="height:500px">
+              <div class="box-header with-border">
+                <h4>5 Data Gaji Pokok Pegawai Terbaru</h4>
+              </div>
+              <div class="box-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th width="30%">Nama</th>
+                        <th width="10%">Golongan</th>
+                        <th width="20%">Jabatan</th>
+                        <th width="30%">Gaji Pokok</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      @foreach ($data_gaji as $value)
+                        <tr>
+                          <td>{{$value->pegawai->nama}}</td>
+                          <td>{{$value->pegawai->golongan->nama}}</td>
+                          <td>{{$value->pegawai->jabatan->nama}}</td>
+                          <td>Rp.{{number_format($value->gaji)}}</td>
+                        </tr>
+                      @endforeach
+                    </tbody>
+
+
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
         <!-- /.row -->
 
 @endsection

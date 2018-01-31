@@ -22,6 +22,7 @@
                     <th rowspan="2">GAJI NETO</th>
                     <th colspan="5"><center>Potongan</center></th>
                     <th rowspan="2">Jumlah Yang Dibayarkan</th>
+                    <th rowspan="2">Tanggal Gajian</th>
                     <th rowspan="2">Aksi</th>
                   </tr>
                   <tr>
@@ -53,10 +54,11 @@
                         {{number_format($key->kpkb+$key->bjb+$key->zakat+$key->dharma+$key->makmur)}}
                       </td>
                       <td>Rp {{number_format($key->pegawai->gaji->gaji-($key->kpkb+$key->bjb+$key->zakat+$key->dharma+$key->makmur))}}</td>
+                      <td>{{$key->created_at}}</td>
                       <td>
                         <a href="#" class="btn btn-warning btn-simple btn-xs" id="btn-edit" data-name="{{$key->pegawai->nama}}" data-url="/potongan/edit/{{$key->id}}"> <span class="fa fa-pencil"></span> </a>
                         <a href="#" class="btn btn-danger btn-simple btn-xs" id="btn-delete" data-name="{{$key->pegawai->nama}}" data-url="/potongan/hapus/{{$key->id}}"> <span class="fa fa-trash"></span> </a>
-                        {{-- <a href="#" class="btn btn-info btn-simple btn-xs" id="btn-print" data-name="{{$key->pegawai->nama}}" data-url="/potongan/print/{{$key->id}}"> <span class="fa fa-print"></span> </a> --}}
+                        <a href="#" class="btn btn-info btn-simple btn-xs" id="btn-print" data-name="{{$key->pegawai->nama}}" data-url="/potongan/print/{{$key->id}}"> <span class="fa fa-print"></span> </a>
                       </td>
                     </tr>
                     @endforeach
@@ -72,7 +74,8 @@
 <script type="text/javascript">
   $(document).ready(function(){
 
-    $(".btn-info").click(function(){
+    // $(".btn-info").click(function(){
+    $('#example1').on('click','.btn-info',function () {
         var nama = $(this).data('name');
         var url = $(this).data('url');
         swal({
@@ -90,7 +93,9 @@
         });
     });
 
-    $(".btn-danger").click(function(){
+    // $(".btn-danger").click(function(){
+      $('#example1').on('click','.btn-danger',function () {
+
         var nama = $(this).data('name');
         var url = $(this).data('url');
         swal({
@@ -107,7 +112,9 @@
         });
     });
 
-     $(".btn-warning").click(function(){
+     // $(".btn-warning").click(function(){
+     $('#example1').on('click','.btn-warning',function () {
+
         var nama = $(this).data('name');
         var url = $(this).data('url');
         swal({

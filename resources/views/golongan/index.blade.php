@@ -46,7 +46,8 @@
 <script type="text/javascript">
   $(document).ready(function(){
 
-    $(".btn-danger").click(function(){
+    // $(".btn-danger").click(function(){
+    $('#example1').on('click','.btn-danger',function () {
         var nama = $(this).data('name');
         var url = $(this).data('url');
         swal({
@@ -63,7 +64,8 @@
         });
     });
 
-     $(".btn-warning").click(function(){
+     // $(".btn-warning").click(function(){
+     $('#example1').on('click','.btn-warning',function () {
         var nama = $(this).data('name');
         var url = $(this).data('url');
         swal({
@@ -79,7 +81,7 @@
           }
         });
     });
-      
+
   });
 </script>
 @endsection

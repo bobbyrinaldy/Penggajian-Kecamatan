@@ -1,7 +1,8 @@
+
 @extends('layouts.master')
 
 @section('title')
-  Form Jabatan
+  Form Pegawai
 @endsection
 
 @section('content')
@@ -9,14 +10,14 @@
             <div class="box-header with-border">
             </div>
 
-            <form class="form-horizontal" action="/pegawai/save" method="post">
+            <form class="form-horizontal" action="/pegawai/save" method="post" id="form">
               {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">
                   <label for="" class="col-sm-2 control-label">NIP</label>
 
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control" placeholder="Masukan NIP Pegawai" name="nip" maxlength="18">
+                  <div class="col-sm-3 error">
+                    <input type="text" class="form-control" placeholder="Masukan NIP Pegawai" name="nip" maxlength="18" id="nip">
                   </div>
                 </div>
               </div>
@@ -25,7 +26,7 @@
                 <div class="form-group">
                   <label for="" class="col-sm-2 control-label">Nama</label>
 
-                  <div class="col-sm-5">
+                  <div class="col-sm-5 error">
                     <input type="text" class="form-control" placeholder="Masukan Nama Pegawai" name="nama">
                   </div>
                 </div>
@@ -35,8 +36,8 @@
                 <div class="form-group">
                   <label for="" class="col-sm-2 control-label">No. Telepon</label>
 
-                  <div class="col-sm-5">
-                    <input type="text" class="form-control" placeholder="Masukan No Telepon" name="no_tlp">
+                  <div class="col-sm-5 error">
+                    <input type="text" class="form-control" placeholder="Masukan No Telepon" name="no_tlp" maxlength="13">
                   </div>
                 </div>
               </div>
@@ -45,7 +46,7 @@
                 <div class="form-group">
                   <label for="" class="col-sm-2 control-label">Alamat</label>
 
-                  <div class="col-sm-5">
+                  <div class="col-sm-5 error">
                     <textarea name="alamat" rows="8" cols="80" class="form-control"></textarea>
                   </div>
                 </div>
@@ -55,8 +56,8 @@
                 <div class="form-group">
                   <label for="" class="col-sm-2 control-label">Jenis Kelamin</label>
 
-                  <div class="col-sm-5">
-                    <input type="radio" name="jk" value="P"> Perempuan <br>
+                  <div class="col-sm-5 error">
+                    <input type="radio" name="jk" value="P" checked> Perempuan <br>
                     <input type="radio" name="jk" value="L"> Laki-Laki
                   </div>
                 </div>
@@ -66,7 +67,7 @@
                 <div class="form-group">
                   <label for="" class="col-sm-2 control-label">Agama</label>
 
-                  <div class="col-sm-5">
+                  <div class="col-sm-5 error">
                     <select class="form-control" name="agama" required>
                       <option value="" selected disabled>-PILIH AGAMA-</option>
                       <option value="ISLAM">ISLAM</option>
@@ -83,7 +84,7 @@
                 <div class="form-group">
                   <label for="" class="col-sm-2 control-label">Golongan</label>
 
-                  <div class="col-sm-5">
+                  <div class="col-sm-5 error">
                     <select class="form-control" name="golongan" required>
                       <option value="" selected disabled>-PILIH GOLONGAN-</option>
                       @foreach ($g as $item)
@@ -98,7 +99,7 @@
                 <div class="form-group">
                   <label for="" class="col-sm-2 control-label">Jabatan</label>
 
-                  <div class="col-sm-5">
+                  <div class="col-sm-5 error">
                     <select class="form-control" name="jabatan" required>
                       <option value="" selected disabled>-PILIH Jabatan-</option>
                       @foreach ($j as $item)
@@ -112,10 +113,14 @@
 
               <!-- /.box-body -->
               <div class="box-footer">
-                <button type="submit" class="btn btn-default">Batal</button>
+                <a href="/pegawai" class="btn btn-warning">Batal</a>
                 <button type="submit" class="btn btn-info">Simpan</button>
               </div>
               <!-- /.box-footer -->
             </form>
           </div>
+@endsection
+
+@section('js')
+  @include('pegawai.script')
 @endsection
