@@ -49,10 +49,49 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown notifications-menu">
+
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span class="hidden-xs">Welcome, {{auth::user()->name}}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="{{asset('assets/img/logo.png')}}" class="" alt="User Image">
+
+                <p>
+                  {{auth::user()->name}} - Bendahara
+                  <small>Kecamatan Bandung Kulon</small>
+                </p>
+              </li>
+              <!-- Menu Body -->
+              
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat" id="change" data-toggle="modal" data-target="#myModal"><i class="fa fa-key text-orange"> Change Password</i></a>
+                </div>
+                <div class="pull-right">
+                  <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
+                        onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                                 <i class="fa fa-sign-out text-red"> Logout</i>
+
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </div>
+              </li>
+            </ul>
+          </li>
+
+          {{-- <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-user"> {{auth::user()->name}}</i>
             </a>
+
             <ul class="dropdown-menu">
               <li>
                 <!-- inner menu: contains the actual data -->
@@ -71,7 +110,7 @@
                     </form>
                   </li>
             </ul>
-          </li>
+          </li> --}}
           <!-- Control Sidebar Toggle Button -->
         </ul>
       </div>
@@ -153,13 +192,38 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
+      @if (\Session::get('success'))
+      <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-check"></i>
+           {{\Session::get('success')}}
+        </h4>
+      </div>
+      @elseif (\Session::get('fail'))
+      <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-close"></i>
+           {{\Session::get('fail')}}
+        </h4>
+      </div>
+      @elseif (\Session::get('new_pass'))
+      <div class="alert alert-warning alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-check"></i>
+           {{\Session::get('new_pass')}}
+        </h4>
+      </div>
+      @elseif (\Session::get('konfirmasi'))
+      <div class="alert alert-warning alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-check"></i>
+           {{\Session::get('konfirmasi')}}
+        </h4>
+      </div>
+      @endif
       <h1>
         @yield('title')
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
     </section>
 
     <!-- Main content -->
@@ -172,9 +236,9 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
+      
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2018 <a href="/">Khansa Nabila Salma</a> - Kecamatan Bandung Kulon.</strong> All rights
     reserved.
   </footer>
 
@@ -371,6 +435,57 @@
   <div class="control-sidebar-bg"></div>
 
 </div>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Change Password</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal"  action="/change_password/save/{{Auth::user()->id}}" method="post">
+                    {{ csrf_field() }}
+
+              <div class="col-md-offset-3">
+                <div class="form-group">
+                  <b> Password Lama</b>
+                  <input type="password" name="old_password" class="form-control" style="width: 80%">
+                </div>
+
+                @if ($errors->has('old_password'))
+                      <span class="help-block">
+                          <strong style="color: red">*Password harus sama dengan saat ini!</strong>
+                      </span>
+                  @endif
+
+                <div class="form-group">
+                  <b> Password Baru</b>
+                  <input type="password" name="password" class="form-control" style="width: 80%">
+                </div>
+
+                <div class="form-group">
+                  <b> Konfirmasi Password Baru</b>
+                  <input type="password" name="password_confirmation" class="form-control" style="width: 80%">
+                </div>
+
+              </div>      
+
+      </div>
+      <div class="modal-footer">
+        <button type="reset" class="btn btn-danger btn-flat">Reset</button>
+        <button type="submit" class="btn btn-primary btn-flat">Save</button>
+        <input type="hidden" name="_method" value="put">
+
+      </div>
+      </form>
+
+    </div>
+
+  </div>
+</div>
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
@@ -400,8 +515,8 @@
 <script src="{{asset('bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
 <!-- jvectormap  -->
 <script src="{{asset('plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-<script src="{{asset('plugins/validation/additional-methods.js')}}"></script>
 <script src="{{asset('plugins/validation/jquery.validate.js')}}"></script>
+<script src="{{asset('plugins/validation/additional-methods.js')}}"></script>
 <script src="{{asset('plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
 <!-- SlimScroll -->
 <script src="{{asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>

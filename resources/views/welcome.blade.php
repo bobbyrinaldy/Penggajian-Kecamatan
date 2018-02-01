@@ -79,6 +79,7 @@
                           <li><a href="/login" target="_blank" id='login'>Login</a></li>
                           {{-- <li><a href="/register" target="_blank" id='register'>Register</a></li> --}}
                         @else
+                          <li><a href="/home" id='admin'>Admin</a></li>
                           <li><a href="/login" >Logout</a></li>
                         @endguest
                     </ul>
@@ -500,12 +501,15 @@
 		<!-- jquery easing -->
         <script src="onepage/js/wow.min.js"></script>
 		<script>
-    $("#register").click(function(){
-      $(this).location.href='/register';
-    });
-    $("#login").click(function(){
-      $(this).location.href='/login';
-    });
+		    $("#register").click(function(){
+		      $(this).location.href='/register';
+		    });
+		    $("#login").click(function(){
+		      $(this).location.href='/login';
+		    });
+		    $("#admin").click(function(){
+		      $(this).location.href='/home';
+		    });
 
 			var wow = new WOW ({
 				boxClass:     'wow',      // animated element css class (default is wow)

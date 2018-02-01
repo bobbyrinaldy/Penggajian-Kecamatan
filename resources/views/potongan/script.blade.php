@@ -60,8 +60,5 @@ $( "#form" ).validate({
   unhighlight: function (element) {
               $(element).closest(".error").removeClass('has-error').addClass('has-success');
             },
-  submitHandler: function (form) {
-                     form.submit();
-                          }
 });
 </script>

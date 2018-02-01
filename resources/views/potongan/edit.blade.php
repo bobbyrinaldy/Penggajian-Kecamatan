@@ -100,7 +100,7 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <a href="/gaji" class="btn btn-default">Batal</a>
+                <a href="/potongan" class="btn btn-warning">Batal</a>
                 <button type="submit" class="btn btn-info">Simpan</button>
               </div>
               <!-- /.box-footer -->

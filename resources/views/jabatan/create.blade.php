@@ -11,7 +11,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" action="/jabatan/save" method="post">
+            <form class="form-horizontal" action="/jabatan/save" method="post" id="form">
               {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">
@@ -25,10 +25,13 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <button type="submit" class="btn btn-default">Batal</button>
+                <a href="/jabatan" class="btn btn-warning">Batal</a>
                 <button type="submit" class="btn btn-info">Simpan</button>
               </div>
               <!-- /.box-footer -->
             </form>
           </div>
+@endsection
+@section('js')
+  @include('jabatan.script')
 @endsection

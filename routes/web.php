@@ -61,4 +61,9 @@ Route::group(['middleware' => 'auth'], function()
   Route::get('/laporan/penerima_gaji', 'LaporanController@indexTerimaGaji');
   Route::get('/laporan/jurnal', 'LaporanController@indexJurnal');
   Route::get('/laporan/jurnal/print', 'LaporanController@printJurnal');
+
+
 });
+
+  Route::put('/change_password/save/{id}', 'HomeController@saveChange');
+

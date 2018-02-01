@@ -64,7 +64,7 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <a href="/gaji" class="btn btn-default">Batal</a>
+                <a href="/gaji" class="btn btn-warning">Batal</a>
                 <button type="submit" class="btn btn-info">Simpan</button>
                 <input type="hidden" name="_method" value="put">
               </div>

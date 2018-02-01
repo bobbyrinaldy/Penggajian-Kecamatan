@@ -51,7 +51,7 @@
                   <div class="form-group">
                     <label for="rek" class="col-sm-2 control-label" >No. Rek SES. BG KKN</label>
                     <div class="col-sm-5">
-                      <input type="text" name="rek" class="form-control digit" maxlength="16" placeholder="No Rekening (0 jika tidak memiliki)">
+                      <input type="text" name="rek" class="form-control digit" maxlength="16" placeholder="No Rekening (0 jika tidak memiliki)" required="yes">
                     </div>
                   </div>
 
@@ -112,7 +112,7 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <a href="/gaji" class="btn btn-default">Batal</a>
+                <a href="/potongan" class="btn btn-warning">Batal</a>
                 <button type="button" class="btn btn-info" id="btn-submit">Simpan</button>
               </div>
               <!-- /.box-footer -->

@@ -11,7 +11,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" action="/gaji/save" method="post">
+            <form class="form-horizontal" action="/gaji/save" method="post" id="form">
               {{ csrf_field() }}
               <div class="box-body">
 
@@ -53,7 +53,7 @@
                     <label for="gaji" class="col-sm-2 control-label">Gaji Pokok</label>
 
                     <div class="col-sm-4">
-                      <input type="text" name="gaji" class="form-control money">
+                      <input type="text" name="gaji" class="form-control money" id="gaji">
                     </div>
                   </div>
 
@@ -63,8 +63,8 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <a href="/gaji" class="btn btn-default">Batal</a>
-                <button type="submit" class="btn btn-info">Simpan</button>
+                <a href="/gaji" class="btn btn-warning">Batal</a>
+                <button type="submit" class="btn btn-info" id="btn-submit">Submit</button>     
               </div>
               <!-- /.box-footer -->
             </form>
@@ -72,27 +72,5 @@
 @endsection
 
 @section('js')
-  <script type="text/javascript">
-    $('#nip').on('change', function() {
-      var nip = $(this).val();
-
-      if (nip != "") {
-        $('.after').css('display','block');
-
-        $.ajax({
-
-            url: "/pegawai/search/"+nip,
-            type: "GET",
-            data : {nip : nip},
-            dataType:"json"
-
-        }).done(function(response) {
-            $('#nama').val(response.nama);
-            $('#golongan').val(response.golongan.nama);
-            $('#id').val(response.id);
-        });
-
-      }
-    })
-  </script>
+  @include('gaji.script')
 @endsection
