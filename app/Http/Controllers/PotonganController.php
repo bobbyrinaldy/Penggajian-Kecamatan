@@ -20,7 +20,16 @@ class PotonganController extends Controller
     public function create()
     {
       $today = carbon::now()->format('m');
-      $data['pegawai'] = DB::select( DB::raw("SELECT * FROM pegawais WHERE id not in (select pegawai_id from potongans where Month(created_at) = $today)") );
+      $data['gaji'] = DB::select( DB::raw("SELECT * FROM pegawais join gajis on pegawais.id = gajis.pegawai_id WHERE pegawais.id not in (select pegawai_id from potongans where Month(created_at) = $today)") );
+
+      if (!empty($data['gaji'])) {
+        foreach ($data['gaji'] as $key => $value) {
+          if ($value->deleted_at == NULL or $value->deleted_at == '') {
+            $data['pegawai'][] = $value;
+          }
+        }
+      }
+
 
       return view ('potongan/create',$data);
     }
@@ -78,5 +87,12 @@ class PotonganController extends Controller
       $potongan->delete();
 
       return redirect('/potongan');
+    }
+
+    public function restore()
+    {
+      $potongan = Potongan::onlyTrashed()
+                          ->restore();
+      return back();
     }
 }

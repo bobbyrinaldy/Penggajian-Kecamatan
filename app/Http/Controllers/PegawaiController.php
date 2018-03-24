@@ -84,4 +84,11 @@ class PegawaiController extends Controller
 
       return json_encode($data);
     }
+
+    public function restore()
+    {
+      $pegawai = Pegawai::onlyTrashed()
+                ->restore();
+      return back();
+    }
 }

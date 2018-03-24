@@ -11,6 +11,8 @@
           </div>
           <div class="box-body">
             <a href="/golongan/create" class="btn btn-success"> <span class="fa fa-plus"> Tambah Data Golongan</span></a>
+            <a href="/golongan/restore" class="btn btn-info pull-right"><i class="fa fa-refresh"></i> </a>
+
             <hr>
             <table id="example1" class="table table-bordered table-striped">
                 <thead>

@@ -11,6 +11,7 @@
           </div>
           <div class="box-body">
             <a href="/gaji/create" class="btn btn-success"> <span class="fa fa-plus"> Tambah Data Gaji Pegawai</span></a>
+            <a href="/gaji/restore" class="btn btn-info pull-right"><i class="fa fa-refresh"></i> </a>
             <hr>
             <table id="example1" class="table table-bordered table-striped">
                 <thead>

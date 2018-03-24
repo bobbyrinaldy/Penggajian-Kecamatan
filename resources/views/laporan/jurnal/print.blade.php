@@ -3,11 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title>Jurnal - {{date('F Y')}}</title>
-    <style media="all">
+    <style>
       body {
-        background: rgb(204,204,204);
+        background: white;
         font-family: "Times New Roman";
         font-size:20px;
+      }
+
+      table.white tr td{
+        background: white;
       }
       page {
         background: white;
@@ -54,7 +58,7 @@
       tr:nth-child(even){background-color: #f2f2f2}
 
       th {
-          background-color: #4CAF50;
+          background-color: #FBEE1C;
           color: black;
       }
           </style>
@@ -88,7 +92,7 @@
       <hr style="margin-top:-12px">
 
       <p>Gaji Belum Dibayarkan</p>
-      <p>Tanggal : <b>{{date('d F Y')}}</b></p>
+      <p>Tanggal : <b>{{date('2 F Y')}}</b></p>
 
       <table border="1" class="jurnal" width="100%">
         <thead>
@@ -121,7 +125,7 @@
       <br>
 
       <p>Gaji Sudah Dibayarkan</p>
-      <p>Tanggal : <b>{{date('d F Y')}}</b></p>
+      <p>Tanggal : <b>{{date('2 F Y')}}</b></p>
 
       <table border="1" class="jurnal" width="100%">
         <thead>
@@ -135,20 +139,22 @@
         <tbody>
           <tr>
             <td>Hutang Gaji</td>
-            <td>Rp.{{number_format($potongan)}}</td>
+            {{-- <td>Rp.{{number_format($potongan)}}</td> --}}
+            <td>Rp.{{number_format($gaji-$potongan)}}</td>
             <td>-</td>
           </tr>
 
           <tr>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kas</td>
             <td>-</td>
-            <td>Rp.{{number_format($potongan)}}</td>
+            {{-- <td>Rp.{{number_format($potongan)}}</td> --}}
+            <td>Rp.{{number_format($gaji-$potongan)}}</td>
           </tr>
         </tbody>
       </table>
 
       <br><br><br>
-      <table width="100%">
+      <table width="100%" class="white">
         <tr>
           <td style="text-align:center;">Camat Bandung Kulon</td>
           <td style="text-align:center;">Bendahara Gaji</td>

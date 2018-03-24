@@ -54,4 +54,11 @@ class JabatanController extends Controller
 
       return back();
     }
+
+    public function restore()
+    {
+      $jabatan = Jabatan::onlyTrashed()
+                ->restore();
+      return back();
+    }
 }

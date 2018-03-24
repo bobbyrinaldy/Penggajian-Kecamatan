@@ -24,7 +24,7 @@ Dashboard
               <span class="info-box-icon bg-red"><i class="fa fa-money"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Total Gaji Pokok</span>
+                <span class="info-box-text">Total Gaji Pokok <br> Seluruh Pegawai </span>
                 <span class="info-box-number">Rp. {{number_format($gaji_pokok)}}</span>
               </div>
               <!-- /.info-box-content -->

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-  Laporan Jurnal {{date('F Y')}}
+  Laporan Jurnal Periode {{date('F Y')}}
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
             <a href="/laporan/jurnal/print" class="btn btn-success" target="_blank"><span class="fa fa-print"> Print Jurnal</span></a>
             <hr>
             <p>Gaji Belum Dibayarkan</p>
-            <p>Tanggal : <b>{{date('d F Y')}}</b></p>
+            <p>Tanggal : <b>{{date('2 F Y')}}</b></p>
           </div>
           <div class="box-body">
             {{-- <a href="/potongan/create" class="btn btn-success"> <span class="fa fa-plus"> Tambah Data Potongan Gaji</span></a> --}}
@@ -47,11 +47,9 @@
         <div class="box">
                 <div class="box-header with-border">
                   <p>Gaji Sudah Dibayarkan</p>
-                  <p>Tanggal : <b>{{date('d F Y')}}</b></p>
+                  <p>Tanggal : <b>{{date('2 F Y')}}</b></p>
                 </div>
                 <div class="box-body">
-                  {{-- <a href="/potongan/create" class="btn btn-success"> <span class="fa fa-plus"> Tambah Data Potongan Gaji</span></a> --}}
-                  {{-- <hr> --}}
                   <div class="table-responsive">
                     <table class="table table-bordered table-striped">
                         <thead>
@@ -65,14 +63,16 @@
                         <tbody>
                           <tr>
                             <td>Hutang Gaji</td>
-                            <td>Rp.{{number_format($potongan)}}</td>
+                            {{-- <td>Rp.{{number_format($potongan)}}</td> --}}
+                            <td>Rp.{{number_format($gaji-$potongan)}}</td>
                             <td>-</td>
                           </tr>
 
                           <tr>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kas</td>
                             <td>-</td>
-                            <td>Rp.{{number_format($potongan)}}</td>
+                            {{-- <td>Rp.{{number_format($potongan)}}</td> --}}
+                            <td>Rp.{{number_format($gaji-$potongan)}}</td>
                           </tr>
                         </tbody>
 

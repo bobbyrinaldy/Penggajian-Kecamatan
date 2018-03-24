@@ -30,7 +30,7 @@ class HomeController extends Controller
         $data['potongan'] = potongan::with('pegawai.gaji')->whereMonth('created_at',$month)->orderBy('created_at','DESC')->count();
         $data['bayar'] = potongan::with('pegawai.gaji')->whereMonth('created_at',$month)->orderBy('created_at','DESC')->pluck('total')->sum();
 
-        $data['potongan_gaji'] = potongan::with('pegawai.gaji')->whereMonth('created_at',$month)->orderBy('created_at','DESC')->get();
+        $data['potongan_gaji'] = potongan::with('pegawai.gaji')->whereMonth('created_at',$month)->orderBy('created_at','DESC')->get()->take(5);
         $data['data_gaji'] = gaji::with('pegawai')->orderBy('created_at','desc')->get()->take(5);
 
         return view('index',$data);
@@ -64,6 +64,6 @@ class HomeController extends Controller
           return back();
         }
       }
-      
+
     }
 }

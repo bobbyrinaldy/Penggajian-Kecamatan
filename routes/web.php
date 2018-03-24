@@ -17,6 +17,7 @@ Route::group(['middleware' => 'auth'], function()
   // Pegawai
   Route::get('/pegawai', 'PegawaiController@index');
   Route::get('/pegawai/search/{nip}', 'PegawaiController@search');
+  Route::get('/pegawai/restore', 'PegawaiController@restore');
   Route::get('/pegawai/create', 'PegawaiController@create');
   Route::post('/pegawai/save', 'PegawaiController@save');
   Route::get('/pegawai/edit/{id}', 'PegawaiController@edit');
@@ -25,6 +26,7 @@ Route::group(['middleware' => 'auth'], function()
 
   // Jabatan
   Route::get('/jabatan', 'JabatanController@index');
+  Route::get('/jabatan/restore', 'JabatanController@restore');
   Route::get('/jabatan/create', 'JabatanController@create');
   Route::post('/jabatan/save', 'JabatanController@save');
   Route::get('/jabatan/edit/{id}', 'JabatanController@edit');
@@ -33,6 +35,7 @@ Route::group(['middleware' => 'auth'], function()
 
   // Golongan
   Route::get('/golongan', 'GolonganController@index');
+  Route::get('/golongan/restore', 'GolonganController@restore');
   Route::get('/golongan/create', 'GolonganController@create');
   Route::post('/golongan/save', 'GolonganController@save');
   Route::get('/golongan/edit/{id}', 'GolonganController@edit');
@@ -41,6 +44,7 @@ Route::group(['middleware' => 'auth'], function()
 
   // Gaji
   Route::get('/gaji', 'GajiController@index');
+  Route::get('/gaji/restore', 'GajiController@restore');
   Route::get('/gaji/create', 'GajiController@create');
   Route::post('/gaji/save', 'GajiController@save');
   Route::get('/gaji/edit/{id}', 'GajiController@edit');
@@ -49,6 +53,7 @@ Route::group(['middleware' => 'auth'], function()
 
   //Potongan
   Route::get('/potongan', 'PotonganController@index');
+  Route::get('/potongan/restore', 'PotonganController@restore');
   Route::get('/potongan/create', 'PotonganController@create');
   Route::post('/potongan/save', 'PotonganController@save');
   Route::get('/potongan/edit/{id}', 'PotonganController@edit');
@@ -59,6 +64,7 @@ Route::group(['middleware' => 'auth'], function()
 
   //Laporan
   Route::get('/laporan/penerima_gaji', 'LaporanController@indexTerimaGaji');
+  Route::get('/laporan/gaji_bulanan', 'LaporanController@indexGajiBulanan');
   Route::get('/laporan/jurnal', 'LaporanController@indexJurnal');
   Route::get('/laporan/jurnal/print', 'LaporanController@printJurnal');
 
@@ -66,4 +72,3 @@ Route::group(['middleware' => 'auth'], function()
 });
 
   Route::put('/change_password/save/{id}', 'HomeController@saveChange');
-

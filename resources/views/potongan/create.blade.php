@@ -22,9 +22,11 @@
                     <div class="col-sm-5">
                       <select class="form-control select2" name="nip" id="nip">
                         <option value="" selected disabled>Pilih Pegawai</option>
-                        @foreach ($pegawai as $item)
-                          <option value="{{$item->nip}}">{{$item->nip}} / {{$item->nama}}</option>
-                        @endforeach
+                        @if (@$pegawai)
+                          @foreach ($pegawai as $item)
+                            <option value="{{$item->nip}}">{{$item->nip}} / {{$item->nama}}</option>
+                          @endforeach
+                        @endif
                       </select>
                     </div>
                   </div>
@@ -160,6 +162,9 @@
     });
 
     $('#kpkb').on('change', function() {
+      if ($(this).val() == '') {
+        $(this).val(0)
+      }
       var makmur = $('#makmur').val();
       var gaji = $('#pokok').val();
       var dharma = $('#golongan').val();
@@ -188,6 +193,9 @@
     })
 
     $('#makmur').on('change', function() {
+      if ($(this).val() == '') {
+        $(this).val(0)
+      }
       var makmur = $('#makmur').val();
       var gaji = $('#pokok').val();
       var dharma = $('#golongan').val();

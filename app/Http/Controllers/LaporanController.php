@@ -18,6 +18,15 @@ class LaporanController extends Controller
       return view('laporan/penerima_gaji/index',$data);
     }
 
+    public function indexGajiBulanan()
+    {
+      $now = Carbon::now();
+      $month = $now->format('m');
+      $data['potongan'] = potongan::with('pegawai.gaji')->whereMonth('created_at',$month)->orderBy('created_at','DESC')->get();
+
+      return view('laporan/gaji_bulanan/index',$data);
+    }
+
     public function indexJurnal()
     {
       $data['gaji'] = Gaji::all()->sum('gaji');

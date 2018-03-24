@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Aplikasi Penggajian</title>
+  <link rel="icon" href="{{asset('assets/img/logo.png')}}" type="image/gif" sizes="16x16">
+  
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -32,7 +34,7 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="/" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>K</b>BK</span>
       <!-- logo for regular state and mobile devices -->
@@ -65,7 +67,7 @@
                 </p>
               </li>
               <!-- Menu Body -->
-              
+
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
@@ -123,6 +125,12 @@
     <section class="sidebar">
       <!-- Sidebar user panel -->
 
+      <div class="user-panel">
+        <center>
+          <img src="{{asset('assets/img/logo.png')}}" alt="" width="70%">
+        </center>
+      </div>
+
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
@@ -179,6 +187,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/laporan/penerima_gaji"><i class="fa fa-book"></i> Penerima Gaji</a></li>
+            <li><a href="/laporan/gaji_bulanan"><i class="fa fa-book"></i> Gaji Bulanan</a></li>
             <li><a href="/laporan/jurnal"><i class="fa fa-book"></i> Jurnal</a></li>
           </ul>
         </li>
@@ -236,7 +245,7 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      
+
     </div>
     <strong>Copyright &copy; 2018 <a href="/">Khansa Nabila Salma</a> - Kecamatan Bandung Kulon.</strong> All rights
     reserved.
@@ -471,7 +480,7 @@
                   <input type="password" name="password_confirmation" class="form-control" style="width: 80%">
                 </div>
 
-              </div>      
+              </div>
 
       </div>
       <div class="modal-footer">

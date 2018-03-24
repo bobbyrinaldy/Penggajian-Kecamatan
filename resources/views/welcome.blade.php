@@ -11,6 +11,8 @@
 		<!-- Page Title -->
         <title>Aplikasi Sistem Penggajian</title>
 		<!-- Meta Description -->
+    <link rel="icon" href="{{asset('assets/img/logo.png')}}" type="image/gif" sizes="16x16">
+    
         <meta name="description" content="Blue One Page Creative HTML5 Template">
         <meta name="keywords" content="one page, single page, onepage, responsive, parallax, creative, business, html5, css3, css3 animation">
         <meta name="author" content="Muhammad Morshed">
@@ -80,7 +82,18 @@
                           {{-- <li><a href="/register" target="_blank" id='register'>Register</a></li> --}}
                         @else
                           <li><a href="/home" id='admin'>Admin</a></li>
-                          <li><a href="/login" >Logout</a></li>
+                          <li>
+                            <a href="{{ route('logout') }}" id="logout"
+                                  onclick="event.preventDefault();
+                                           document.getElementById('logout-form').submit();">
+                                          Logout
+
+                              </a>
+
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                  {{ csrf_field() }}
+                              </form>
+                          </li>
                         @endguest
                     </ul>
                 </nav>
@@ -469,7 +482,7 @@
         ==================================== -->
 
 
-		
+
 
 		<a href="javascript:void(0);" id="back-top"><i class="fa fa-angle-up fa-3x"></i></a>
 
@@ -506,6 +519,9 @@
 		    });
 		    $("#login").click(function(){
 		      $(this).location.href='/login';
+		    });
+        $("#logout").click(function(){
+		      $(this).location.href='/logout';
 		    });
 		    $("#admin").click(function(){
 		      $(this).location.href='/home';

@@ -3,6 +3,7 @@
 <head>
 <title>Login Aplikasi Sistem Penggajian</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="{{asset('assets/img/logo.png')}}" type="image/gif" sizes="16x16">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Flaty User login Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>

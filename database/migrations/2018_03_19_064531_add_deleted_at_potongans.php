@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ModifyColumnNoRekPotongan extends Migration
+class AddDeletedAtPotongans extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class ModifyColumnNoRekPotongan extends Migration
      */
     public function up()
     {
-        Schema::table('potongans', function (Blueprint $table) {
-            $table->string('no_rek')->nullable()->change();
-        });
+      Schema::table('potongans', function($table) {
+          $table->date('deleted_at')->nullable();
+      });
     }
 
     /**
@@ -25,6 +25,8 @@ class ModifyColumnNoRekPotongan extends Migration
      */
     public function down()
     {
-        //
+      Schema::table('potongans', function($table) {
+          $table->dropColumn('deleted_at')->nullable();
+      });
     }
 }

@@ -50,4 +50,11 @@ class GolonganController extends Controller
 
       return back();
     }
+
+    public function restore()
+    {
+      $golongan = Golongan::onlyTrashed()
+                ->restore();
+      return back();
+    }
 }

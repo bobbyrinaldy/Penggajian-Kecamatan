@@ -23,7 +23,7 @@ class GajiController extends Controller
                       ->from('gajis')
                       ->whereRaw('pegawais.id = gajis.pegawai_id');
             })
-            ->get();      
+            ->get();
 
     	return view('gaji.create',$data);
     }
@@ -73,6 +73,13 @@ class GajiController extends Controller
 
     	$g->delete();
     	return back();
+    }
+
+    public function restore()
+    {
+      $gaji = Gaji::onlyTrashed()
+                ->restore();
+      return back();
     }
 
 }
