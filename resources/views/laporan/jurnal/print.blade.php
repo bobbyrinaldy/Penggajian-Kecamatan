@@ -92,7 +92,7 @@
       <hr style="margin-top:-12px">
 
       <p>Gaji Belum Dibayarkan</p>
-      <p>Tanggal : <b>{{date('2 F Y')}}</b></p>
+      <p>Tanggal : <b>{{date('28 F Y', strtotime('-1 months'))}}</b></p>
 
       <table border="1" class="jurnal" width="100%">
         <thead>

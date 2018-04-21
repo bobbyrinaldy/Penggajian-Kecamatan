@@ -10,7 +10,7 @@
             <a href="/laporan/jurnal/print" class="btn btn-success" target="_blank"><span class="fa fa-print"> Print Jurnal</span></a>
             <hr>
             <p>Gaji Belum Dibayarkan</p>
-            <p>Tanggal : <b>{{date('2 F Y')}}</b></p>
+            <p>Tanggal : <b>{{date('28 F Y', strtotime('-1 months'))}}</b></p>
           </div>
           <div class="box-body">
             {{-- <a href="/potongan/create" class="btn btn-success"> <span class="fa fa-plus"> Tambah Data Potongan Gaji</span></a> --}}
